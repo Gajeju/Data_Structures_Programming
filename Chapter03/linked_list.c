@@ -4,6 +4,7 @@
 #pragma warning (disable : 4996)
 #pragma warning (disable : 6001)
 #pragma warning (disable : 6031)
+#include "ArrayList.h"
 
 //순차 리스트
 
