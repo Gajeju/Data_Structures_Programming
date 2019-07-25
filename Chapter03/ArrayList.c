@@ -43,7 +43,7 @@ LData LRemove(List* plist)
 {
 	int rpos = plist->curPositon;
 	int num = plist->numOfData;
-	LData rdata = plist->numOfData;
+	LData rdata = plist->arr[rpos];
 
 	for (int i = rpos; i < num - 1; i++)
 		plist->arr[i] = plist->arr[i + 1];
