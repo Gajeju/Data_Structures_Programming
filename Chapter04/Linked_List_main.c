@@ -35,7 +35,7 @@
 typedef struct _node
 {
 	int data;
-	struct _node* next;
+	struct _node* next;	//리스트를 연결하는 도구
 } Node;
 
 int main(void)
