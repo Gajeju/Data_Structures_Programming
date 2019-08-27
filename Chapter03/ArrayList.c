@@ -57,3 +57,4 @@ int LCount(List* plist)
 {
 	return plist->numOfData;
 }
+
