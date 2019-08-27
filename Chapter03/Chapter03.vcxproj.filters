@@ -27,6 +27,9 @@
     <ClCompile Include="NameCard.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ArrayList_self.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h">

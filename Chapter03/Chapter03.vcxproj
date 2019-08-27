@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList.c" />
+    <ClCompile Include="ArrayList_self.c" />
     <ClCompile Include="list_main.c" />
     <ClCompile Include="NameCard.c" />
     <ClCompile Include="Point.c" />

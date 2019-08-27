@@ -61,6 +61,61 @@
 //}
 
 
+//배열기반 리스트 사용연습
+
+//int main(void)
+//{
+//	//ArrayList의 생성 및 초기화
+//	List list;
+//	int  data;
+//	ListInit(&list);
+//
+//	//데이터 저장
+//	for (int i = 0; i < 20; i++)
+//	{
+//		LInsert(&list, i);
+//	}
+//
+//	//데이터 출력
+//	printf("저장된 데이터 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
+//	}
+//	puts("");
+//
+//	//홀수 삭제
+//	if (LFirst(&list, &data))
+//	{
+//		if (data % 2 == 1)
+//			LRemove(&list);
+//
+//		while (LNext(&list, &data))
+//		{
+//			if (data % 2 == 1)
+//				LRemove(&list);
+//		}
+//	}
+//
+//	//데이터 출력
+//	printf("저장된 데이터 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
+//	}
+//
+//	return 0;
+//}
+
+
 //practice 1
 
 //int main(void)
@@ -194,95 +249,95 @@
 
 //practice 2
 
-#include "NameCard.h"
-
-int main(void)
-{
-	List list;
-	NameCard* pcard;
-	ListInit(&list);
-
-	pcard = MakeNameCard("이진수", "010-1111-2222");
-	LInsert(&list, pcard);
-
-	pcard = MakeNameCard("한지영", "010-2222-5555");
-	LInsert(&list, pcard);
-
-	pcard = MakeNameCard("조수진", "010-3333-7777");
-	LInsert(&list, pcard);
-	
-	//한지영 정보 출력
-	if (LFirst(&list, &pcard))
-	{
-		if (!Namecompare(pcard, "한지영"))
-			ShowNameCardInfo(pcard);
-		else
-		{
-			while (LNext(&list, &pcard))
-			{
-				if (!Namecompare(pcard, "한지영"))
-				{
-					ShowNameCardInfo(pcard);
-					break;
-				}
-			
-			}
-		}
-	}
-
-	//이수진 정보 변경
-	if (LFirst(&list, &pcard))
-	{
-		if (!Namecompare(pcard, "이수진"))
-		{
-			ChangePhoneNum(pcard, "010-9999-9999");
-		}
-		else
-		{
-			while (LNext(&list, &pcard))
-			{
-				if (!Namecompare(pcard, "이수진"))
-				{
-					ChangePhoneNum(pcard, "010-9999-9999");
-					break;
-				}
-			}
-		}
-	}
-
-	//조수진의 정보를 삭제
-	if (LFirst(&list, &pcard))
-	{
-		if (!Namecompare(pcard, "조수진"))
-		{
-			pcard = LRemove(&list);
-			free(pcard);
-		}
-		else
-		{
-			while (LNext(&list, &pcard))
-			{
-				if (!Namecompare(pcard, "조수진"))
-				{
-					pcard = LRemove(&list);
-					free(pcard);
-					break;
-				}
-			}
-		}
-	}
-
-	//출력
-
-	printf("현재 데이터의 수 : %d \n", LCount(&list));
-
-	if (LFirst(&list, &pcard))
-	{
-		ShowNameCardInfo(pcard);
-
-		while (LNext(&list, &pcard))
-			ShowNameCardInfo(pcard);
-	}
-
-	return 0;
-}
+//#include "NameCard.h"
+//
+//int main(void)
+//{
+//	List list;
+//	NameCard* pcard;
+//	ListInit(&list);
+//
+//	pcard = MakeNameCard("이진수", "010-1111-2222");
+//	LInsert(&list, pcard);
+//
+//	pcard = MakeNameCard("한지영", "010-2222-5555");
+//	LInsert(&list, pcard);
+//
+//	pcard = MakeNameCard("조수진", "010-3333-7777");
+//	LInsert(&list, pcard);
+//	
+//	//한지영 정보 출력
+//	if (LFirst(&list, &pcard))
+//	{
+//		if (!Namecompare(pcard, "한지영"))
+//			ShowNameCardInfo(pcard);
+//		else
+//		{
+//			while (LNext(&list, &pcard))
+//			{
+//				if (!Namecompare(pcard, "한지영"))
+//				{
+//					ShowNameCardInfo(pcard);
+//					break;
+//				}
+//			
+//			}
+//		}
+//	}
+//
+//	//이수진 정보 변경
+//	if (LFirst(&list, &pcard))
+//	{
+//		if (!Namecompare(pcard, "이수진"))
+//		{
+//			ChangePhoneNum(pcard, "010-9999-9999");
+//		}
+//		else
+//		{
+//			while (LNext(&list, &pcard))
+//			{
+//				if (!Namecompare(pcard, "이수진"))
+//				{
+//					ChangePhoneNum(pcard, "010-9999-9999");
+//					break;
+//				}
+//			}
+//		}
+//	}
+//
+//	//조수진의 정보를 삭제
+//	if (LFirst(&list, &pcard))
+//	{
+//		if (!Namecompare(pcard, "조수진"))
+//		{
+//			pcard = LRemove(&list);
+//			free(pcard);
+//		}
+//		else
+//		{
+//			while (LNext(&list, &pcard))
+//			{
+//				if (!Namecompare(pcard, "조수진"))
+//				{
+//					pcard = LRemove(&list);
+//					free(pcard);
+//					break;
+//				}
+//			}
+//		}
+//	}
+//
+//	//출력
+//
+//	printf("현재 데이터의 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &pcard))
+//	{
+//		ShowNameCardInfo(pcard);
+//
+//		while (LNext(&list, &pcard))
+//			ShowNameCardInfo(pcard);
+//	}
+//
+//	return 0;
+//}

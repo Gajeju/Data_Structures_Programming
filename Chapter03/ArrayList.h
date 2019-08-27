@@ -8,9 +8,9 @@
 #define FALSE	0
 
 #define LIST_LEN	100
-//typedef int LData;
+typedef int LData;
 //typedef Point* LData;
-typedef NameCard* LData;
+//ypedef NameCard* LData;
 
 typedef struct __ArrayList
 {
