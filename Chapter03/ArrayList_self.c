@@ -20,11 +20,22 @@ void LInsert(List* plist, LData data)
 
 int LFirst(List* plist, LData* pdata)
 {
+	if (plist->numOfData == 0)
+		return FALSE;
 
+	(plist->curPositon) = 0;
+	pdata = &(plist->arr[0]);
+	return TRUE;
 }
+
 int LNext(List* plist, LData* pdata)
 {
+	if ((plist->curPositon) >= (plist->numOfData)-1)
+		return FALSE;
 
+	(plist->curPositon)++;
+	pdata = &(plist->arr[plist->curPositon]);
+	return TRUE;
 }
 
 LData LRemove(List* plist)
@@ -34,5 +45,5 @@ LData LRemove(List* plist)
 
 int LCount(List* plist)
 {
-
+	return (plist->numOfData);
 }
