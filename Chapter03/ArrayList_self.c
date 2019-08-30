@@ -54,5 +54,5 @@ LData LRemove(List* plist)
 
 int LCount(List* plist)
 {
-	return (plist->numOfData);
+	
 }
