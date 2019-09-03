@@ -118,54 +118,54 @@
 
 //practice 1
 
-//int main(void)
-//{
-//	int data;
-//	int result = 0;
-//
-//	//리스트 생성 및 초기화
-//	List list;
-//	ListInit(&list);
-//
-//	//정수 저장
-//	for (int i = 1; i < 10; i++)
-//		LInsert(&list, i);
-//	printf("현재 데이터의 수 : %d \n", LCount(&list));
-//
-//	//데이터 참조 후 덧셈 연산
-//	if (LFirst(&list, &data))
-//	{
-//		result += data;
-//		while (LNext(&list, &data))
-//			result += data;
-//	}
-//	printf("리스트 데이터의 총 합 : %d \n", result);
-//
-//	//2의 배수와 3의 배수 삭제
-//	if(LFirst(&list, &data))
-//	{
-//		if ((data % 2) == 0 || (data % 3) == 0)
-//			LRemove(&list);
-//		while (LNext(&list, &data))
-//		{
-//			if ((data % 2) == 0 || (data % 3) == 0)
-//				LRemove(&list);
-//		}
-//	}
-//
-//	//출력
-//	printf("현재 데이터의 수 : %d \n", LCount(&list));
-//
-//	if (LFirst(&list, &data))
-//	{
-//		printf("%d ", data);
-//		while (LNext(&list, &data))
-//			printf("%d ", data);
-//	}
-//	puts("");
-//
-//	return 0;
-//}
+int main(void)
+{
+	int data;
+	int result = 0;
+
+	//리스트 생성 및 초기화
+	List list;
+	ListInit(&list);
+
+	//정수 저장
+	for (int i = 1; i < 10; i++)
+		LInsert(&list, i);
+	printf("현재 데이터의 수 : %d \n", LCount(&list));
+
+	//데이터 참조 후 덧셈 연산
+	if (LFirst(&list, &data))
+	{
+		result += data;
+		while (LNext(&list, &data))
+			result += data;
+	}
+	printf("리스트 데이터의 총 합 : %d \n", result);
+
+	//2의 배수와 3의 배수 삭제
+	if(LFirst(&list, &data))
+	{
+		if ((data % 2) == 0 || (data % 3) == 0)
+			LRemove(&list);
+		while (LNext(&list, &data))
+		{
+			if ((data % 2) == 0 || (data % 3) == 0)
+				LRemove(&list);
+		}
+	}
+
+	//출력
+	printf("현재 데이터의 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
+		while (LNext(&list, &data))
+			printf("%d ", data);
+	}
+	puts("");
+
+	return 0;
+}
 
 
 //포인터 변수의 저장
