@@ -117,6 +117,72 @@
 
 //practice 1
 
+//typedef struct _node
+//{
+//	int data;
+//	struct _node* next;
+//} Node;
+//
+//int main(void)
+//{
+//	Node* head = NULL;
+//	Node* tail = NULL;
+//	Node* cur = NULL;
+//	
+//	Node* newNode = NULL;
+//	int readData;
+//
+//	//데이터 입력
+//	while (1)
+//	{
+//		printf("자연수 입력 : ");
+//		scanf("%d", &readData);
+//		
+//		if (readData < 1)
+//			break;
+//		
+//		//노드 추가
+//		newNode = (Node*)malloc(sizeof(Node));
+//		(newNode->data) = readData;
+//		newNode->next = NULL;
+//
+//		if (head == NULL)
+//		{
+//			head = newNode;
+//			tail = newNode;
+//		}
+//		else
+//		{
+//			newNode->next = head;
+//			head = newNode;
+//		}
+//
+//	}
+//
+//	//참조
+//	
+//	printf("출력 \n");
+//	
+//	if (head == NULL)
+//		printf("데이터가 존재하지 않습니다");
+//	else
+//	{
+//		cur = head;
+//		printf("%d ", cur->data);
+//
+//		while (cur->next != NULL)
+//		{
+//			cur = cur->next;
+//			printf("%d ", cur->data);
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+//practice 2
+
 typedef struct _node
 {
 	int data;
@@ -128,54 +194,34 @@ int main(void)
 	Node* head = NULL;
 	Node* tail = NULL;
 	Node* cur = NULL;
-	
+
 	Node* newNode = NULL;
 	int readData;
+	
+	//더미노드 삽입
+	head = (Node*)malloc(sizeof(Node));
+	tail = head;
 
 	//데이터 입력
 	while (1)
 	{
 		printf("자연수 입력 : ");
 		scanf("%d", &readData);
-		
-		if (readData < 1)
-			break;
-		
-		//노드 추가
-		newNode = (Node*)malloc(sizeof(Node));
-		(newNode->data) = readData;
-		newNode->next = NULL;
 
-		if (head == NULL)
+		if (readData < 1)
 		{
-			head = newNode;
-			tail = newNode;
+			break;
 		}
 		else
 		{
-			newNode->next = head;
-			head = newNode;
-		}
-
-	}
-
-	//참조
-	
-	printf("출력 \n");
-	
-	if (head == NULL)
-		printf("데이터가 존재하지 않습니다");
-	else
-	{
-		cur = head;
-		printf("%d ", cur->data);
-
-		while (cur->next != NULL)
-		{
-			cur = cur->next;
-			printf("%d ", cur->data);
+			newNode = (Node*)malloc(sizeof(Node));
+			newNode->data = readData;
+			tail->next = newNode;
+			tail = newNode;
 		}
 	}
+
+
 
 	return 0;
 }
