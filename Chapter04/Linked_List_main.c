@@ -3,6 +3,7 @@
 #pragma warning (disable : 4996)
 #pragma warning (disable : 6001)
 #pragma warning (disable : 6031)
+#pragma warning (disable : 6011)
 
 
 //배열기반 리스트의 한계
@@ -200,6 +201,7 @@ int main(void)
 	
 	//더미노드 삽입
 	head = (Node*)malloc(sizeof(Node));
+	head->next = NULL;
 	tail = head;
 
 	//데이터 입력
@@ -216,12 +218,28 @@ int main(void)
 		{
 			newNode = (Node*)malloc(sizeof(Node));
 			newNode->data = readData;
+			newNode->next = NULL;
+
 			tail->next = newNode;
 			tail = newNode;
 		}
 	}
 
+	//참조
+	printf("출력 : ");
 
+	if ((head->next) == NULL)
+		printf("데이터가 없습니다 \n");
+	else
+	{
+		cur = head->next;
+		printf("%d ", cur->data);
+		while (cur->next != NULL)
+		{
+			cur = cur->next;
+			printf("%d ", cur->data);
+		}
+	}
 
 	return 0;
 }
