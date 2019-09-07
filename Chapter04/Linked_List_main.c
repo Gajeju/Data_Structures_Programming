@@ -201,7 +201,6 @@ int main(void)
 	
 	//더미노드 삽입
 	head = (Node*)malloc(sizeof(Node));
-	head->next = NULL;
 	tail = head;
 
 	//데이터 입력
@@ -228,7 +227,7 @@ int main(void)
 	//참조
 	printf("출력 : ");
 
-	if ((head->next) == NULL)
+	if (head == tail)
 		printf("데이터가 없습니다 \n");
 	else
 	{
