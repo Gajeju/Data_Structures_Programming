@@ -240,5 +240,29 @@ int main(void)
 		}
 	}
 
+	puts("");
+
+	//메모리의 해제과정
+	if (head == tail)
+	{
+		return 0;
+	}
+	else
+	{
+		Node* delNode = head;
+		Node* delNextNode = delNode->next;
+
+
+
+		while (delNextNode != NULL)
+		{
+			delNode = delNextNode;
+			delNextNode = delNextNode->next;
+
+			printf("%d을(를) 삭제합니다 \n", delNode->data);
+			free(delNode);
+		}
+	}
+
 	return 0;
 }
