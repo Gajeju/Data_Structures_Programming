@@ -252,8 +252,6 @@ int main(void)
 		Node* delNode = head;
 		Node* delNextNode = delNode->next;
 
-
-
 		while (delNextNode != NULL)
 		{
 			delNode = delNextNode;
