@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "DLinkedList.h"
+#pragma warning(disable : 6011)
 
 void ListInit(List* plist)
 {
@@ -52,7 +53,9 @@ int LNext(List* plist, LData* pdata)
 		return FALSE;
 
 	plist->before = plist->cur;
-	plist->cur = plist->cur->data;
+	plist->cur = plist->cur->next;
+
+	*pdata = plist->cur->data;
 	return TRUE;
 }
 

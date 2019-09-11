@@ -283,7 +283,7 @@ int main(void)
 	LInsert(&list, 33);	LInsert(&list, 33);
 
 	//출력
-	printf("데이터 수 : %d", LCount(&list));
+	printf("데이터 수 : %d \n", LCount(&list));
 
 	if (LFirst(&list, &data))
 	{
@@ -307,7 +307,7 @@ int main(void)
 	}
 
 	//출력
-	printf("데이터 수 : %d", LCount(&list));
+	printf("데이터 수 : %d \n", LCount(&list));
 
 	if (LFirst(&list, &data))
 	{
