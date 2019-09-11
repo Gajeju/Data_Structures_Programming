@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DLinkedList.c" />
     <ClCompile Include="Linked_List_main.c" />
   </ItemGroup>
   <ItemGroup>

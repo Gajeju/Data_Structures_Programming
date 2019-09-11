@@ -184,83 +184,139 @@
 
 //practice 2
 
-typedef struct _node
-{
-	int data;
-	struct _node* next;
-} Node;
+//typedef struct _node
+//{
+//	int data;
+//	struct _node* next;
+//} Node;
+//
+//int main(void)
+//{
+//	Node* head = NULL;
+//	Node* tail = NULL;
+//	Node* cur = NULL;
+//
+//	Node* newNode = NULL;
+//	int readData;
+//	
+//	//더미노드 삽입
+//	head = (Node*)malloc(sizeof(Node));
+//	tail = head;
+//
+//	//데이터 입력
+//	while (1)
+//	{
+//		printf("자연수 입력 : ");
+//		scanf("%d", &readData);
+//
+//		if (readData < 1)
+//		{
+//			break;
+//		}
+//		else
+//		{
+//			newNode = (Node*)malloc(sizeof(Node));
+//			newNode->data = readData;
+//			newNode->next = NULL;
+//
+//			tail->next = newNode;
+//			tail = newNode;
+//		}
+//	}
+//
+//	//참조
+//	printf("출력 : ");
+//
+//	if (head == tail)
+//		printf("데이터가 없습니다 \n");
+//	else
+//	{
+//		cur = head->next;
+//		printf("%d ", cur->data);
+//		while (cur->next != NULL)
+//		{
+//			cur = cur->next;
+//			printf("%d ", cur->data);
+//		}
+//	}
+//
+//	puts("");
+//
+//	//메모리의 해제과정
+//	if (head == tail)
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		Node* delNode = head;
+//		Node* delNextNode = delNode->next;
+//
+//		while (delNextNode != NULL)
+//		{
+//			delNode = delNextNode;
+//			delNextNode = delNextNode->next;
+//
+//			printf("%d을(를) 삭제합니다 \n", delNode->data);
+//			free(delNode);
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+//더미노드기반 연결리스트 구현
+
+#include "DLinkedList.h"
 
 int main(void)
 {
-	Node* head = NULL;
-	Node* tail = NULL;
-	Node* cur = NULL;
+	//초기화
+	List list;
+	int data;
+	ListInit(&list);
 
-	Node* newNode = NULL;
-	int readData;
-	
-	//더미노드 삽입
-	head = (Node*)malloc(sizeof(Node));
-	tail = head;
+	//데이터 저장
+	LInsert(&list, 11);	LInsert(&list, 11);
+	LInsert(&list, 22);	LInsert(&list, 22);
+	LInsert(&list, 33);	LInsert(&list, 33);
 
-	//데이터 입력
-	while (1)
+	//출력
+	printf("데이터 수 : %d", LCount(&list));
+
+	if (LFirst(&list, &data))
 	{
-		printf("자연수 입력 : ");
-		scanf("%d", &readData);
+		printf("%d ", data);
 
-		if (readData < 1)
-		{
-			break;
-		}
-		else
-		{
-			newNode = (Node*)malloc(sizeof(Node));
-			newNode->data = readData;
-			newNode->next = NULL;
-
-			tail->next = newNode;
-			tail = newNode;
-		}
+		while (LNext(&list, &data))
+			printf("%d ", data);
 	}
-
-	//참조
-	printf("출력 : ");
-
-	if (head == tail)
-		printf("데이터가 없습니다 \n");
-	else
-	{
-		cur = head->next;
-		printf("%d ", cur->data);
-		while (cur->next != NULL)
-		{
-			cur = cur->next;
-			printf("%d ", cur->data);
-		}
-	}
-
 	puts("");
 
-	//메모리의 해제과정
-	if (head == tail)
+	//숫자 22 모두 삭제
+	if (LFirst(&list, &data))
 	{
-		return 0;
-	}
-	else
-	{
-		Node* delNode = head;
-		Node* delNextNode = delNode->next;
-
-		while (delNextNode != NULL)
+		if (data == 22)
+			LRemove(&list);
+		while (LNext(&list, &data))
 		{
-			delNode = delNextNode;
-			delNextNode = delNextNode->next;
-
-			printf("%d을(를) 삭제합니다 \n", delNode->data);
-			free(delNode);
+			if (data == 22)
+				LRemove(&list);
 		}
 	}
+
+	//출력
+	printf("데이터 수 : %d", LCount(&list));
+
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
+
+		while (LNext(&list, &data))
+			printf("%d ", data);
+	}
+	puts("");
 
 	return 0;
 }
