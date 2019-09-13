@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="DLinkedList.c" />
     <ClCompile Include="Linked_List_main.c" />
+    <ClCompile Include="Pont.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkedList.h" />
