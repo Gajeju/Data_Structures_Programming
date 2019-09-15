@@ -3,8 +3,10 @@
 
 #define TRUE	1
 #define FALSE	0
+#include "Point.h"
 
-typedef int LData;
+//typedef int LData;
+typedef Point LData;
 
 typedef struct _node
 {
