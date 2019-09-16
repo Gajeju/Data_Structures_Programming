@@ -268,64 +268,65 @@
 
 //더미노드기반 연결리스트 구현
 
-//#include "DLinkedList.h"
-//
-//int main(void)
-//{
-//	//초기화
-//	List list;
-//	int data;
-//	ListInit(&list);
-//
-//	//데이터 저장
-//	LInsert(&list, 11);	LInsert(&list, 11);
-//	LInsert(&list, 22);	LInsert(&list, 22);
-//	LInsert(&list, 33);	LInsert(&list, 33);
-//
-//	//출력
-//	printf("데이터 수 : %d \n", LCount(&list));
-//
-//	if (LFirst(&list, &data))
-//	{
-//		printf("%d ", data);
-//
-//		while (LNext(&list, &data))
-//			printf("%d ", data);
-//	}
-//	puts("");
-//
-//	//숫자 22 모두 삭제
-//	if (LFirst(&list, &data))
-//	{
-//		if (data == 22)
-//			LRemove(&list);
-//		while (LNext(&list, &data))
-//		{
-//			if (data == 22)
-//				LRemove(&list);
-//		}
-//	}
-//
-//	//출력
-//	printf("데이터 수 : %d \n", LCount(&list));
-//
-//	if (LFirst(&list, &data))
-//	{
-//		printf("%d ", data);
-//
-//		while (LNext(&list, &data))
-//			printf("%d ", data);
-//	}
-//	puts("");
-//
-//	return 0;
-//}
+#include "DLinkedList.h"
+
+int main(void)
+{
+	//초기화
+	List list;
+	int data;
+	ListInit(&list);
+
+	//데이터 저장
+	LInsert(&list, 11);	LInsert(&list, 11);
+	LInsert(&list, 22);	LInsert(&list, 22);
+	LInsert(&list, 33);	LInsert(&list, 33);
+
+	//출력
+	printf("데이터 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
+
+		while (LNext(&list, &data))
+			printf("%d ", data);
+	}
+	puts("");
+
+	//숫자 22 모두 삭제
+	if (LFirst(&list, &data))
+	{
+		if (data == 22)
+			LRemove(&list);
+		while (LNext(&list, &data))
+		{
+			if (data == 22)
+				LRemove(&list);
+		}
+	}
+
+	//출력
+	printf("데이터 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
+
+		while (LNext(&list, &data))
+			printf("%d ", data);
+	}
+	puts("");
+
+	return 0;
+}
 
 
 
 //포인터 변수의 저장
 
 //#include "Point.h"
+//#include "DLinkedList.h"
 //
 //int main(void)
 //{

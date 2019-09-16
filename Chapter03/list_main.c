@@ -118,133 +118,133 @@
 
 //practice 1
 
-int main(void)
-{
-	int data;
-	int result = 0;
-
-	//리스트 생성 및 초기화
-	List list;
-	ListInit(&list);
-
-	//정수 저장
-	for (int i = 1; i < 10; i++)
-		LInsert(&list, i);
-	printf("현재 데이터의 수 : %d \n", LCount(&list));
-
-	//데이터 참조 후 덧셈 연산
-	if (LFirst(&list, &data))
-	{
-		result += data;
-		while (LNext(&list, &data))
-			result += data;
-	}
-	printf("리스트 데이터의 총 합 : %d \n", result);
-
-	//2의 배수와 3의 배수 삭제
-	if(LFirst(&list, &data))
-	{
-		if ((data % 2) == 0 || (data % 3) == 0)
-			LRemove(&list);
-		while (LNext(&list, &data))
-		{
-			if ((data % 2) == 0 || (data % 3) == 0)
-				LRemove(&list);
-		}
-	}
-
-	//출력
-	printf("현재 데이터의 수 : %d \n", LCount(&list));
-
-	if (LFirst(&list, &data))
-	{
-		printf("%d ", data);
-		while (LNext(&list, &data))
-			printf("%d ", data);
-	}
-	puts("");
-
-	return 0;
-}
-
-
-//포인터 변수의 저장
-
-//#include "Point.h"
-//
 //int main(void)
 //{
-//	List list;
-//	Point compPos;
-//	Point* ppos;
+//	int data;
+//	int result = 0;
 //
+//	//리스트 생성 및 초기화
+//	List list;
 //	ListInit(&list);
 //
-//	//4개의 데이터 저장
-//	ppos = (Point*)malloc(sizeof(Point));
-//	SetPointPos(ppos, 2, 1);
-//	LInsert(&list, ppos);
-//
-//	ppos = (Point*)malloc(sizeof(Point));
-//	SetPointPos(ppos, 2, 2);
-//	LInsert(&list, ppos);
-//
-//	ppos = (Point*)malloc(sizeof(Point));
-//	SetPointPos(ppos, 3, 1);
-//	LInsert(&list, ppos);
-//
-//	ppos = (Point*)malloc(sizeof(Point));
-//	SetPointPos(ppos, 3, 2);
-//	LInsert(&list, ppos);
-//
-//	//저장된 데이터 출력
-//	printf("현재 데이터 수 : %d \n", LCount(&list));
-//
-//	if (LFirst(&list, &ppos))
-//	{
-//		ShowPointPos(ppos);
-//
-//		while (LNext(&list, &ppos))
-//			ShowPointPos(ppos);
-//	}
-//	puts("");
-//
-//	//xpos가 2인 데이터 삭제
-//	compPos.xpos = 2;
-//	compPos.ypos = 0;
-//
-//	if (LFirst(&list, &ppos))
-//	{
-//		if (PointComp(ppos, &compPos) == 1)
-//		{
-//			ppos = LRemove(&list);
-//			free(ppos);
-//		}
-//
-//		while (LNext(&list, &ppos))
-//		{
-//			if (PointComp(ppos, &compPos) == 1)
-//			{
-//				ppos = LRemove(&list);
-//				free(ppos);
-//			}
-//		}
-//	}
-//
-//	//삭제 후 남은 데이터 출력
+//	//정수 저장
+//	for (int i = 1; i < 10; i++)
+//		LInsert(&list, i);
 //	printf("현재 데이터의 수 : %d \n", LCount(&list));
 //
-//	if (LFirst(&list, &ppos))
+//	//데이터 참조 후 덧셈 연산
+//	if (LFirst(&list, &data))
 //	{
-//		ShowPointPos(ppos);
+//		result += data;
+//		while (LNext(&list, &data))
+//			result += data;
+//	}
+//	printf("리스트 데이터의 총 합 : %d \n", result);
 //
-//		while (LNext(&list, &ppos))
-//			ShowPointPos(ppos);
+//	//2의 배수와 3의 배수 삭제
+//	if(LFirst(&list, &data))
+//	{
+//		if ((data % 2) == 0 || (data % 3) == 0)
+//			LRemove(&list);
+//		while (LNext(&list, &data))
+//		{
+//			if ((data % 2) == 0 || (data % 3) == 0)
+//				LRemove(&list);
+//		}
+//	}
+//
+//	//출력
+//	printf("현재 데이터의 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
 //	}
 //	puts("");
 //
 //	return 0;
 //}
+
+
+//포인터 변수의 저장
+
+#include "Point.h"
+
+int main(void)
+{
+	List list;
+	Point compPos;
+	Point* ppos;
+
+	ListInit(&list);
+
+	//4개의 데이터 저장
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 2, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 2, 2);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 3, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 3, 2);
+	LInsert(&list, ppos);
+
+	//저장된 데이터 출력
+	printf("현재 데이터 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &ppos))
+	{
+		ShowPointPos(ppos);
+
+		while (LNext(&list, &ppos))
+			ShowPointPos(ppos);
+	}
+	puts("");
+
+	//xpos가 2인 데이터 삭제
+	compPos.xpos = 2;
+	compPos.ypos = 0;
+
+	if (LFirst(&list, &ppos))
+	{
+		if (PointComp(ppos, &compPos) == 1)
+		{
+			ppos = LRemove(&list);
+			free(ppos);
+		}
+
+		while (LNext(&list, &ppos))
+		{
+			if (PointComp(ppos, &compPos) == 1)
+			{
+				ppos = LRemove(&list);
+				free(ppos);
+			}
+		}
+	}
+
+	//삭제 후 남은 데이터 출력
+	printf("현재 데이터의 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &ppos))
+	{
+		ShowPointPos(ppos);
+
+		while (LNext(&list, &ppos))
+			ShowPointPos(ppos);
+	}
+	puts("");
+
+	return 0;
+}
 
 
 //practice 2
