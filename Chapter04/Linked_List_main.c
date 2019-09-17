@@ -268,58 +268,58 @@
 
 //더미노드기반 연결리스트 구현
 
-#include "DLinkedList.h"
-
-int main(void)
-{
-	//초기화
-	List list;
-	int data;
-	ListInit(&list);
-
-	//데이터 저장
-	LInsert(&list, 11);	LInsert(&list, 11);
-	LInsert(&list, 22);	LInsert(&list, 22);
-	LInsert(&list, 33);	LInsert(&list, 33);
-
-	//출력
-	printf("데이터 수 : %d \n", LCount(&list));
-
-	if (LFirst(&list, &data))
-	{
-		printf("%d ", data);
-
-		while (LNext(&list, &data))
-			printf("%d ", data);
-	}
-	puts("");
-
-	//숫자 22 모두 삭제
-	if (LFirst(&list, &data))
-	{
-		if (data == 22)
-			LRemove(&list);
-		while (LNext(&list, &data))
-		{
-			if (data == 22)
-				LRemove(&list);
-		}
-	}
-
-	//출력
-	printf("데이터 수 : %d \n", LCount(&list));
-
-	if (LFirst(&list, &data))
-	{
-		printf("%d ", data);
-
-		while (LNext(&list, &data))
-			printf("%d ", data);
-	}
-	puts("");
-
-	return 0;
-}
+//#include "DLinkedList.h"
+//
+//int main(void)
+//{
+//	//초기화
+//	List list;
+//	int data;
+//	ListInit(&list);
+//
+//	//데이터 저장
+//	LInsert(&list, 11);	LInsert(&list, 11);
+//	LInsert(&list, 22);	LInsert(&list, 22);
+//	LInsert(&list, 33);	LInsert(&list, 33);
+//
+//	//출력
+//	printf("데이터 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
+//	}
+//	puts("");
+//
+//	//숫자 22 모두 삭제
+//	if (LFirst(&list, &data))
+//	{
+//		if (data == 22)
+//			LRemove(&list);
+//		while (LNext(&list, &data))
+//		{
+//			if (data == 22)
+//				LRemove(&list);
+//		}
+//	}
+//
+//	//출력
+//	printf("데이터 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
+//	}
+//	puts("");
+//
+//	return 0;
+//}
 
 
 
@@ -401,3 +401,95 @@ int main(void)
 //
 //	return 0;
 //}
+
+
+//정렬기능 추가
+
+//#include "DLinkedList.h"
+//
+//int WhoIsPrecede(int d1, int d2)
+//{
+//	if (d1 < d2)
+//		return 0;
+//	else
+//		return 1;
+//}
+//
+//int main(void)
+//{
+//	List list;
+//	int data;
+//	ListInit(&list);
+//
+//	SetSortRule(&list, WhoIsPrecede);
+//
+//	LInsert(&list, 1);	LInsert(&list, 5);
+//	LInsert(&list, 3);	LInsert(&list, 11);
+//	LInsert(&list, 4);
+//
+//	printf("현재 데이터의 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &data))
+//	{
+//		printf("%d ", data);
+//
+//		while (LNext(&list, &data))
+//			printf("%d ", data);
+//	}
+//
+//	return 0;
+//}
+
+
+//practice 4
+
+#include "DLinkedList.h"
+#include "Point.h"
+
+int WhoIsPrecede(Point* d1, Point* d2)
+{
+	if (d1->xpos < d2->xpos)
+		return 0;
+	else if (d1->xpos == d2->xpos && d1->ypos < d2->ypos)
+		return 0;
+	else
+		return 1;
+}
+
+int main(void)
+{
+	List list;
+	Point compPos;
+	Point* ppos;
+	ListInit(&list);
+	
+	SetSortRule(&list, WhoIsPrecede);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 2, 3);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 2, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 1, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPointPos(ppos, 3, 1);
+	LInsert(&list, ppos);
+
+	printf("현재 데이터의 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list, &ppos))
+	{
+		ShowPointPos(ppos);
+
+		while (LNext(&list, &ppos))
+		{
+			ShowPointPos(ppos);
+		}
+	}
+}
