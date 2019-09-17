@@ -2,14 +2,14 @@
 #define __ARRAY_LIST_H__
 
 #include "Point.h"
-#include "NameCard.h"
+//#include "NameCard.h"
 
 #define TRUE	1
 #define FALSE	0
 
 #define LIST_LEN	100
-typedef int LData;
-//typedef Point* LData;
+//typedef int LData;
+typedef Point* LData;
 //ypedef NameCard* LData;
 
 typedef struct __ArrayList
