@@ -459,7 +459,6 @@ int WhoIsPrecede(Point* d1, Point* d2)
 int main(void)
 {
 	List list;
-	Point compPos;
 	Point* ppos;
 	ListInit(&list);
 	
