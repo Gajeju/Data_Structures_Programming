@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "CLinkedList.h"
+#pragma warning (disable : 6011)
 
 void ListInit(List* plist)
 {
