@@ -72,101 +72,101 @@
 
 //practice 1
 
-#include "employee.h"
-
-Employee* WhoIsNext(List* list, char* name, int day);
-void ShowEmployee(Employee* employee);
-
-int main(void)
-{
-	List list;
-	Employee* pemp;
-	ListInit(&list);
-
-	//삽입
-	pemp = (Employee*)malloc(sizeof(Employee));
-	strcpy(pemp->name, "Sunny");
-	pemp->empNum = 222222;
-	LInsert(&list, pemp);
-
-	pemp = (Employee*)malloc(sizeof(Employee));
-	strcpy(pemp->name, "Noa");
-	pemp->empNum = 333333;
-	LInsert(&list, pemp);
-
-	pemp = (Employee*)malloc(sizeof(Employee));
-	strcpy(pemp->name, "Loa");
-	pemp->empNum = 444444;
-	LInsert(&list, pemp);
-
-	pemp = (Employee*)malloc(sizeof(Employee));
-	strcpy(pemp->name, "Jery");
-	pemp->empNum = 555555;
-	LInsert(&list, pemp);
-
-	//출력
-	if (LFirst(&list, &pemp))
-	{
-		ShowEmployee(pemp);
-
-		for (int i = 0; i < LCount(&list) - 1; i++)
-		{
-			if (LNext(&list, &pemp))
-				ShowEmployee(pemp);
-		}
-	}
-
-	//Noa 2일 뒤
-	pemp = WhoIsNext(&list, "Noa", 2);
-	ShowEmployee(pemp);
-
-	//Jery 15일 뒤
-	pemp = WhoIsNext(&list, "Jery", 15);
-	ShowEmployee(pemp);
-
-	//삭제
-	if (LFirst(&list, &pemp))
-	{
-		free(pemp);
-
-		for (int i = 0; i < LCount(&list) - 1; i++)
-		{
-			if (LNext(&list, &pemp))
-				free(pemp);
-		}
-	}
-
-	return 0;
-}
-
-Employee* WhoIsNext(List* plist, char* name, int day)
-{
-	int i;
-	Employee* ret;
-	int num = LCount(plist);
-
-	LFirst(plist, &ret);
-
-	if (strcmp(ret->name, name) != 0)
-	{
-		for (i = 0; i < num - 1; i++)
-		{
-			LNext(plist, &ret);
-			if (strcmp(ret->name, name) == 0)
-				break;
-		}
-		if (i >= num - 1)
-			return NULL;
-	}
-	for (i = 0; i < day; i++)
-		LNext(plist, &ret);
-
-	return ret;
-}
-
-void ShowEmployee(Employee * employee)
-{
-	printf("이름 : %s \n", employee->name);
-	printf("사번 : %d \n", employee->empNum);
-	puts("");
-}
+//#include "employee.h"
+//
+//Employee* WhoIsNext(List* list, char* name, int day);
+//void ShowEmployee(Employee* employee);
+//
+//int main(void)
+//{
+//	List list;
+//	Employee* pemp;
+//	ListInit(&list);
+//
+//	//삽입
+//	pemp = (Employee*)malloc(sizeof(Employee));
+//	strcpy(pemp->name, "Sunny");
+//	pemp->empNum = 222222;
+//	LInsert(&list, pemp);
+//
+//	pemp = (Employee*)malloc(sizeof(Employee));
+//	strcpy(pemp->name, "Noa");
+//	pemp->empNum = 333333;
+//	LInsert(&list, pemp);
+//
+//	pemp = (Employee*)malloc(sizeof(Employee));
+//	strcpy(pemp->name, "Loa");
+//	pemp->empNum = 444444;
+//	LInsert(&list, pemp);
+//
+//	pemp = (Employee*)malloc(sizeof(Employee));
+//	strcpy(pemp->name, "Jery");
+//	pemp->empNum = 555555;
+//	LInsert(&list, pemp);
+//
+//	//출력
+//	if (LFirst(&list, &pemp))
+//	{
+//		ShowEmployee(pemp);
+//
+//		for (int i = 0; i < LCount(&list) - 1; i++)
+//		{
+//			if (LNext(&list, &pemp))
+//				ShowEmployee(pemp);
+//		}
+//	}
+//
+//	//Noa 2일 뒤
+//	pemp = WhoIsNext(&list, "Noa", 2);
+//	ShowEmployee(pemp);
+//
+//	//Jery 15일 뒤
+//	pemp = WhoIsNext(&list, "Jery", 15);
+//	ShowEmployee(pemp);
+//
+//	//삭제
+//	if (LFirst(&list, &pemp))
+//	{
+//		free(pemp);
+//
+//		for (int i = 0; i < LCount(&list) - 1; i++)
+//		{
+//			if (LNext(&list, &pemp))
+//				free(pemp);
+//		}
+//	}
+//
+//	return 0;
+//}
+//
+//Employee* WhoIsNext(List* plist, char* name, int day)
+//{
+//	int i;
+//	Employee* ret;
+//	int num = LCount(plist);
+//
+//	LFirst(plist, &ret);
+//
+//	if (strcmp(ret->name, name) != 0)
+//	{
+//		for (i = 0; i < num - 1; i++)
+//		{
+//			LNext(plist, &ret);
+//			if (strcmp(ret->name, name) == 0)
+//				break;
+//		}
+//		if (i >= num - 1)
+//			return NULL;
+//	}
+//	for (i = 0; i < day; i++)
+//		LNext(plist, &ret);
+//
+//	return ret;
+//}
+//
+//void ShowEmployee(Employee * employee)
+//{
+//	printf("이름 : %s \n", employee->name);
+//	printf("사번 : %d \n", employee->empNum);
+//	puts("");
+//}
