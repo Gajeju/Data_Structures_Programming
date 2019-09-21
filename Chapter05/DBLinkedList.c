@@ -1,33 +1,67 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "DBLinkedList.h"
 #pragma warning (disable : 4996)
 #pragma warning (disable : 6031)
 #pragma warning (disable : 6011)
-#pragma warning (disable : 6000)
+#pragma warning (disable : 6001)
 
-#include "DBLinkedList.h"
-
-int main(void)
+void ListInit(List* plist)
 {
-	List list;
-	int data;
-	ListInit(&list);
+	plist->head = NULL;
+	plist->numOfData = 0;
+}
 
-	LInsert(&list, 1);	LInsert(&list, 2);
-	LInsert(&list, 3);	LInsert(&list, 4);
-	LInsert(&list, 5);	LInsert(&list, 6);
-	LInsert(&list, 7);	LInsert(&list, 8);
+void LInsert(List* plist, Data data)
+{
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
 
-	if (LFirst(&list, &data))
-	{
-		printf("%d ", data);
+	newNode->next = plist->head;
+	if (plist->head != NULL)
+		plist->head->prev = newNode;
 
-		while (LNext(&list, &data))
-			printf("%d ", data);
+	newNode->prev = NULL;
+	plist->head = newNode;
 
-		while (LPrevious(&list, &data))
-			printf("%d ", data);
-		puts("");
-	}
+	(plist->numOfData)++;
+}
 
-	return 0;
+
+int LFirst(List* plist, Data* pdata)
+{
+	if (plist->head == NULL)
+		return FALSE;
+
+	plist->cur = plist->head;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+
+int LNext(List* plist, Data* pdata)
+{
+	if (plist->cur->next == NULL)
+		return FALSE;
+
+	plist->cur = plist->cur->next;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+
+int LPrevious(List* plist, Data* pdata)
+{
+	if (plist->cur->prev == NULL)
+		return FALSE;
+	
+	plist->cur = plist->cur->prev;
+	*pdata = plist->cur->data;
+
+	return TRUE;
+}
+
+int LCount(List* plist)
+{
+	return plist->numOfData;
 }
