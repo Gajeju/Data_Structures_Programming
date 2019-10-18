@@ -38,6 +38,7 @@ void LInsert(List* plist, Data data)
 
 
 
+
 int LFirst(List* plist, Data* pdata)
 {
 	if (plist->head == NULL)
