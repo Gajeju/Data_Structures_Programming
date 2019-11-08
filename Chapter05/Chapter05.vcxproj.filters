@@ -27,9 +27,6 @@
     <ClCompile Include="DBLinkedListMain.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DBLinkedListDum.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLinkedList.h">

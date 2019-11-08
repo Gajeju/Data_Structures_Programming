@@ -6,7 +6,7 @@
 #pragma warning (disable : 6031)
 #pragma warning (disable : 6011)
 
-#include "CLinkedList.h"
+//#include "CLinkedList.h"
 
 //int main(void)
 //{

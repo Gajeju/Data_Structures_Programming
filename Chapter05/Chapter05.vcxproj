@@ -126,7 +126,6 @@
     <ClCompile Include="CLinkedList.c" />
     <ClCompile Include="CLinkedListMain.c" />
     <ClCompile Include="DBLinkedList.c" />
-    <ClCompile Include="DBLinkedListDum.c" />
     <ClCompile Include="DBLinkedListMain.c" />
   </ItemGroup>
   <ItemGroup>
