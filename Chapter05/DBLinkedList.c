@@ -27,25 +27,6 @@ void LInsert(List* plist, Data data)
 	(plist->numOfData)++;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int LFirst(List* plist, Data* pdata)
 {
 	if (plist->head == NULL)
@@ -83,3 +64,4 @@ int LCount(List* plist)
 {
 	return plist->numOfData;
 }
+

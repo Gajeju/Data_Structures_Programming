@@ -126,11 +126,13 @@
     <ClCompile Include="CLinkedList.c" />
     <ClCompile Include="CLinkedListMain.c" />
     <ClCompile Include="DBLinkedList.c" />
+    <ClCompile Include="DBLinkedListDum.c" />
     <ClCompile Include="DBLinkedListMain.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="DBLinkedList.h" />
+    <ClInclude Include="DBLinkedListDum.h" />
     <ClInclude Include="employee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
