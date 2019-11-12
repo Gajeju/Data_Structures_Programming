@@ -6,7 +6,11 @@
 #pragma warning (disable : 6011)
 
 
-#include "ArrayBaseStack.h"
+
+//#include "ArrayBaseStack.h"
+//#include "ListBaseStack.h"
+#include "CLinkedList.h"
+#include "CLLBaseStack.h"
 
 int main(void)
 {
@@ -22,3 +26,8 @@ int main(void)
 
 	return 0;
 }
+
+
+
+
+
