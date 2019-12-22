@@ -131,7 +131,7 @@ int SIsEmpty(Stack* pstack)
 
 void SPush(Stack* pstack, Data data)
 {
-	LInsertFront(pstack->plist);
+	LInsertFront(pstack->plist,data);
 }
 
 Data SPop(Stack* pstack)
