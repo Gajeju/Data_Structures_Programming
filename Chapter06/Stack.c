@@ -123,7 +123,7 @@ void StackInit(Stack* pstack)
 
 int SIsEmpty(Stack* pstack)
 {
-	if (LCount(pstack->plist))
+	if (LCount(pstack->plist) == 0)
 		return TRUE;
 	else
 		return FALSE;
@@ -131,7 +131,7 @@ int SIsEmpty(Stack* pstack)
 
 void SPush(Stack* pstack, Data data)
 {
-	LInsertFront(pstack->plist);
+	LInsertFront(pstack->plist,data);
 }
 
 Data SPop(Stack* pstack)
