@@ -126,10 +126,12 @@
     <ClInclude Include="ArrayBaseStack.h" />
     <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="CLLBaseStack.h" />
+    <ClInclude Include="InfixToPostfix.h" />
     <ClInclude Include="ListBaseStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLinkedList.c" />
+    <ClCompile Include="InfixToPostfix.c" />
     <ClCompile Include="Stack.c" />
     <ClCompile Include="StackMain.c" />
   </ItemGroup>
