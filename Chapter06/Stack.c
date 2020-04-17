@@ -148,16 +148,3 @@ Data SPeek(Stack* pstack)
 //	LFirst(pstack->plist, &data);
 //	return data;
 //}
-
-
-
-
-
-
-
-
-
-
-
-
-
