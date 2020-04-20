@@ -139,10 +139,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="SimpleHeap.h" />
+    <ClInclude Include="UsefulHeap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HeapMain.c" />
     <ClCompile Include="SimpleHeap.c" />
+    <ClCompile Include="UsefulHeap.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
