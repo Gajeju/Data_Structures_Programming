@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "UsefulHeap.h"
 
 void HeapInit(Heap* ph, PriorityComp pc)
@@ -21,32 +19,35 @@ int GetParentIDX(int idx)
 	return idx / 2;
 }
 
-int GetRChildIDX(int idx)
+int GetLChildIDX(int idx)
 {
 	return idx * 2;
 }
 
-int GetLChildIDX(int idx)
+int GetRChildIDX(int idx)
 {
-	return GetRChildIDX(idx) + 1;
+	return GetLChildIDX(idx) + 1;
 }
 
-//두 개의 자식 노드 중 높은 우선순위 자식 노드 인덱스 값 리턴
 int GetHiPriChildIDX(Heap* ph, int idx)
 {
 	if (GetLChildIDX(idx) > ph->numOfData)
 		return 0;
+
 	else if (GetLChildIDX(idx) == ph->numOfData)
 		return GetLChildIDX(idx);
+
 	else
 	{
-		if (ph->comp(ph->heapArr[GetLChildIDX(idx)], ph->heapArr[GetRChildIDX(idx)]) < 0)
+		//	if(ph->heapArr[GetLChildIDX(idx)].pr 
+		//				> ph->heapArr[GetRChildIDX(idx)].pr)
+		if (ph->comp(ph->heapArr[GetLChildIDX(idx)],
+			ph->heapArr[GetRChildIDX(idx)]) < 0)
 			return GetRChildIDX(idx);
 		else
 			return GetLChildIDX(idx);
 	}
 }
-
 
 void HInsert(Heap* ph, HData data)
 {
@@ -54,14 +55,18 @@ void HInsert(Heap* ph, HData data)
 
 	while (idx != 1)
 	{
+		//	if(pr < (ph->heapArr[GetParentIDX(idx)].pr))
 		if (ph->comp(data, ph->heapArr[GetParentIDX(idx)]) > 0)
 		{
 			ph->heapArr[idx] = ph->heapArr[GetParentIDX(idx)];
 			idx = GetParentIDX(idx);
 		}
 		else
+		{
 			break;
+		}
 	}
+
 	ph->heapArr[idx] = data;
 	ph->numOfData += 1;
 }
@@ -76,15 +81,15 @@ HData HDelete(Heap* ph)
 
 	while (childIdx = GetHiPriChildIDX(ph, parentIdx))
 	{
-		if (ph->comp(lastElem, ph->heapArr[childIdx] >= 0))
+		//	if(lastElem.pr <= ph->heapArr[childIdx].pr)
+		if (ph->comp(lastElem, ph->heapArr[childIdx]) >= 0)
 			break;
-		
+
 		ph->heapArr[parentIdx] = ph->heapArr[childIdx];
 		parentIdx = childIdx;
 	}
 
 	ph->heapArr[parentIdx] = lastElem;
 	ph->numOfData -= 1;
-
 	return retData;
 }

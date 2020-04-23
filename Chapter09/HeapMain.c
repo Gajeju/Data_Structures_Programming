@@ -5,22 +5,21 @@
 #pragma warning (disable : 6011)
 #pragma warning (disable : 6031)
 
-
-//#include "SimpleHeap.h"
+//#include "simpleheap.h"
 //
 //int main(void)
 //{
 //	Heap heap;
 //	HeapInit(&heap);
 //
-//	HInsert(&heap, 'A', 1);
-//	HInsert(&heap, 'B', 2);
-//	HInsert(&heap, 'C', 3);
+//	HInsert(&heap, 'a', 1);
+//	HInsert(&heap, 'b', 2);
+//	HInsert(&heap, 'c', 3);
 //	printf("%c \n", HDelete(&heap));
 //
-//	HInsert(&heap, 'A', 1);
-//	HInsert(&heap, 'B', 2);
-//	HInsert(&heap, 'C', 3);
+//	HInsert(&heap, 'a', 1);
+//	HInsert(&heap, 'b', 2);
+//	HInsert(&heap, 'c', 3);
 //	printf("%c \n", HDelete(&heap));
 //
 //	while (!HIsEmpty(&heap))
@@ -54,10 +53,10 @@
 //   	HInsert(&heap, 'C');
 //   	printf("%c \n", HDelete(&heap));
 //    
-//   	while (!HIsEmpty(&heap))
-//   	{
-//   		printf("%c \n", HDelete(&heap));
-//   	}
+//    printf("%c \n", HDelete(&heap));
+//    printf("%c \n", HDelete(&heap));
+//    printf("%c \n", HDelete(&heap));
+//    printf("%c \n", HDelete(&heap));
 //
 //    return 0;
 //}
@@ -99,7 +98,7 @@
 
 int DataPriorityComp(char* str1, char* str2)
 {
-    return sizeof(str1) - sizeof(str2);
+    return strlen(str1) - strlen(str2);
 }
 
 int main(void)
@@ -110,12 +109,11 @@ int main(void)
     PEnqueue(&pq, "Good Morning");
     PEnqueue(&pq, "AAA");
     PEnqueue(&pq, "BBBB");
- 
+
 
     PEnqueue(&pq, "Good Morning");
     PEnqueue(&pq, "AAA");
     PEnqueue(&pq, "BBBB");
-    printf("%s \n", PDequeue(&pq));
 
     while (!PQIsEmpty(&pq))
         printf("%s \n", PDequeue(&pq));

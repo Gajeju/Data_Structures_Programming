@@ -20,14 +20,14 @@
 //	return idx / 2;
 //}
 //
-//int GetRChildIDX(int idx)
+//int GetLChildIDX(int idx)
 //{
 //	return idx * 2;
 //}
 //
-//int GetLChildIDX(int idx)
+//int GetRChildIDX(int idx)
 //{
-//	return GetRChildIDX(idx) + 1;
+//	return GetLChildIDX(idx) + 1;
 //}
 //
 ////두 개의 자식 노드 중 높은 우선순위 자식 노드 인덱스 값 리턴
