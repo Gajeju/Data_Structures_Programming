@@ -138,11 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="SimpleHeap.h" />
     <ClInclude Include="UsefulHeap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HeapMain.c" />
+    <ClCompile Include="PriorityQueue.c" />
     <ClCompile Include="SimpleHeap.c" />
     <ClCompile Include="UsefulHeap.c" />
   </ItemGroup>
