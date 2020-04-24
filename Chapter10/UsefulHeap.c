@@ -29,7 +29,7 @@ int GetRChildIDX(int idx)
 	return GetLChildIDX(idx) + 1;
 }
 
-int GetHiPriChildIDX(Heap * ph, int idx)
+int GetHiPriChildIDX(Heap* ph, int idx)
 {
 	if (GetLChildIDX(idx) > ph->numOfData)
 		return 0;
@@ -49,7 +49,7 @@ int GetHiPriChildIDX(Heap * ph, int idx)
 	}
 }
 
-void HInsert(Heap * ph, HData data)
+void HInsert(Heap* ph, HData data)
 {
 	int idx = ph->numOfData + 1;
 
@@ -71,7 +71,7 @@ void HInsert(Heap * ph, HData data)
 	ph->numOfData += 1;
 }
 
-HData HDelete(Heap * ph)
+HData HDelete(Heap* ph)
 {
 	HData retData = ph->heapArr[1];
 	HData lastElem = ph->heapArr[ph->numOfData];
