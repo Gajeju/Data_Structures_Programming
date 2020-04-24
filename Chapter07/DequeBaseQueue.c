@@ -9,7 +9,7 @@ void QueueInit(Queue* pq)
 
 int QIsEmpty(Queue* pq)
 {
-	DQIsEmpty(pq);
+	return DQIsEmpty(pq);
 }
 
 void Enqueue(Queue* pq, Data data)
@@ -24,5 +24,5 @@ Data Dequeue(Queue* pq)
 
 Data QPeek(Queue* pq)
 {
-	DQGetFirst(pq);
+	return DQGetFirst(pq);
 }
