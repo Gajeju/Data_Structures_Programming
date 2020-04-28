@@ -22,6 +22,7 @@
     <ClCompile Include="BubbleSort.c" />
     <ClCompile Include="HeapSort.c" />
     <ClCompile Include="InsertionSort.c" />
+    <ClCompile Include="MergeSort.c" />
     <ClCompile Include="SelectionSort.c" />
     <ClCompile Include="UsefulHeap.c" />
   </ItemGroup>
