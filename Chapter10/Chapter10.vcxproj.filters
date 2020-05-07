@@ -30,6 +30,12 @@
     <ClCompile Include="UsefulHeap.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+     <ClCompile Include="MergeSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="RadixSort.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
