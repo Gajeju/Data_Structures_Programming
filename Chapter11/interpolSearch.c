@@ -12,7 +12,7 @@ int ISearch(int ar[], int first, int last, int target)
 	if (first > last)
 		return -1;
 
-	mid = ((double)(target - ar[first]) / ar[last] - ar[first]) * (last - first) + first;
+	mid = ((double)(target - ar[first]) / (ar[last] - ar[first]) * (last - first)) + first;
 
 	if (ar[mid] == target)
 		return mid;
