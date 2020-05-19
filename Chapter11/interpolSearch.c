@@ -9,7 +9,7 @@ int ISearch(int ar[], int first, int last, int target)
 {
 	int mid;
 
-	if (first > last)
+	if (ar[first] > target || ar[last] < target)
 		return -1;
 
 	mid = ((double)(target - ar[first]) / (ar[last] - ar[first]) * (last - first)) + first;
@@ -40,6 +40,11 @@ int main(void)
 	else
 		printf("Å¸°Ù ÀúÀå ÀÎµ¦½º : %d \n", idx);
 
+	idx = ISearch(arr, 0, sizeof(arr) / sizeof(int) - 1, 2);
+	if (idx == -1)
+		printf("Å½»ö ½ÇÆĞ \n");
+	else
+		printf("Å¸°Ù ÀúÀå ÀÎµ¦½º : %d \n", idx);
 
 	return 0;
 }
