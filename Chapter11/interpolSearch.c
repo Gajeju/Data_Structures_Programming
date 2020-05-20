@@ -23,6 +23,7 @@ int ISearch(int ar[], int first, int last, int target)
 }
 
 
+
 int main(void)
 {
 	int arr[] = { 1, 3, 5, 7, 9 };
