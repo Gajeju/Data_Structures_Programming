@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "BinaryTree2.h"
-#pragma warning (disable : 6011)
+#include "BinaryTree3.h"
 
 BTreeNode* MakeBTreeNode(void)
 {
@@ -52,7 +51,7 @@ void PreorderTravers(BTreeNode* bt, VisitFucPtr action)
 	PreorderTravers(bt->right, action);
 }
 
-void InorderTravers(BTreeNode* bt, VisitFucPtr action)
+void InorderTravers(BTreeNode * bt, VisitFucPtr action)
 {
 	if (bt == NULL)
 		return;
@@ -62,7 +61,7 @@ void InorderTravers(BTreeNode* bt, VisitFucPtr action)
 	InorderTravers(bt->right, action);
 }
 
-void PostorderTravers(BTreeNode* bt, VisitFucPtr action)
+void PostorderTravers(BTreeNode * bt, VisitFucPtr action)
 {
 	if (bt == NULL)
 		return;
@@ -72,13 +71,52 @@ void PostorderTravers(BTreeNode* bt, VisitFucPtr action)
 	action(bt->data);
 }
 
-void DeleteTree(BTreeNode* bt)
+void DeleteTree(BTreeNode * bt)
 {
 	if (bt == NULL)
 		return;
-	
+
 	DeleteTree(bt->left);
 	DeleteTree(bt->right);
 
 	free(bt);
+}
+
+BTreeNode* RemoveLeftSubTree(BTreeNode* bt)
+{
+	BTreeNode* delNode = NULL;
+
+	if (bt != NULL)
+	{
+		delNode = bt->left;
+		bt->left = NULL;
+	}
+	return delNode;
+}
+
+BTreeNode* RemoveRightSubTree(BTreeNode* bt)
+{
+	BTreeNode* delNode = NULL;
+
+	if (bt != NULL)
+	{
+		delNode = bt->right;
+		bt->right = NULL;
+	}
+	return delNode;
+}
+
+void ChangeLeftSubTree(BTreeNode* main, BTreeNode* sub)
+{
+	main->left = sub;
+}
+
+void ChangeRightSubTree(BTreeNode* main, BTreeNode* sub)
+{
+	main->right = sub;
+}
+
+void ShowIntData(int data)
+{
+	printf("%d", data);
 }

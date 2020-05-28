@@ -1,5 +1,7 @@
 #pragma once
 
+//BinaryTree2.h 에서 SearchTree의 노드 제거의 구현을 위한 함수 추가
+
 typedef int BTData;
 
 typedef struct _bTreeNode
@@ -25,4 +27,9 @@ void PreorderTravers(BTreeNode* bt, VisitFucPtr action);
 void InorderTravers(BTreeNode* bt, VisitFucPtr action);
 void PostorderTravers(BTreeNode* bt, VisitFucPtr action);
 
-void DeleteTree(BTreeNode* bt);
+BTreeNode* RemoveLeftSubTree(BTreeNode* bt);
+BTreeNode* RemoveRightSubTree(BTreeNode* bt);
+void ChangeLeftSubTree(BTreeNode* main, BTreeNode* sub);
+void ChangeRightSubTree(BTreeNode* main, BTreeNode* sub);
+
+void ShowIntData(int data);
