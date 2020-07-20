@@ -11,6 +11,7 @@ BTreeNode* MakeBTreeNode(void)
 	return newNode;
 }
 
+
 BTData GetData(BTreeNode* bt)
 {
 	return bt->data;
