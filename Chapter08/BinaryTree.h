@@ -1,4 +1,4 @@
-#pragma once
+#pragma onece
 
 typedef int BTData;
 
@@ -11,7 +11,7 @@ typedef struct _bTreeNode
 
 BTreeNode* MakeBTreeNode(void);
 BTData GetData(BTreeNode* bt);
-void SetData(BTreeNode* bt, BTData data);
+void SetData(BTreeNode* bt, BTreeNode data);
 
 BTreeNode* GetLeftSubTree(BTreeNode* bt);
 BTreeNode* GetRightSubTree(BTreeNode* bt);
