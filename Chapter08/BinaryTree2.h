@@ -2,6 +2,7 @@
 
 typedef int BTData;
 
+
 typedef struct _bTreeNode
 {
 	BTData data;
@@ -18,6 +19,8 @@ BTreeNode* GetRightSubTree(BTreeNode* bt);
 
 void MakeLeftSubTree(BTreeNode* main, BTreeNode* sub);
 void MakeRightSubTree(BTreeNode* main, BTreeNode* sub);
+
+void DeleteTree(BTreeNode* bt);
 
 typedef void VisitFuncPtr(BTData data);
 

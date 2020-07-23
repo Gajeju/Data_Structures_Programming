@@ -18,39 +18,41 @@ int SIsEmpty(Stack* pstack)
 void SPush(Stack* pstack, Data data)
 {
 	Node* newNode = (Node*)malloc(sizeof(Node));
+
 	newNode->data = data;
-	
 	newNode->next = pstack->head;
+
 	pstack->head = newNode;
+
 }
 
 Data SPop(Stack* pstack)
 {
 	Node* rnode;
 	Data rdata;
-	
-	if (SIsEmpty(&pstack))
+
+	if (SIsEmpty(pstack))
 	{
 		printf("Stack Memory Error !");
 		exit(-1);
 	}
+
 	rnode = pstack->head;
-	rdata = pstack->head->next;
+	rdata = rnode->data;
 
 	pstack->head = pstack->head->next;
 	free(rnode);
+
 	return rdata;
 }
 
 Data SPeek(Stack* pstack)
 {
-	if (SIsEmpty(&pstack))
+	if (SIsEmpty(pstack))
 	{
-		print("Stack Memory Error !");
+		printf("Stack Memory Error !");
 		exit(-1);
 	}
 
 	return pstack->head->data;
 }
-
-

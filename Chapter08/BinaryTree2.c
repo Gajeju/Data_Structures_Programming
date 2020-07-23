@@ -78,3 +78,13 @@ void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action)
 	PostorderTraverse(bt->right, action);
 	action(bt->data);
 }
+
+void DeleteTree(BTreeNode* bt)
+{
+	if (bt == NULL)
+		return;
+
+	DeleteTree(bt->left);
+	DeleteTree(bt->right);
+	free(bt);
+}
