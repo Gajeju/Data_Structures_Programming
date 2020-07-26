@@ -98,7 +98,7 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target)
 		else
 			RemoveRightSubTree(pNode);
 	}
-	else if (GetLeftSubTree(dNode) == NULL || GetLeftSubTree(dNode) == NULL)
+	else if (GetLeftSubTree(dNode) == NULL || GetLeftSubTree(dNode) == NULL)	//자식 노드 1개
 	{
 		BTreeNode* dcNode;	//삭제 대상의 자식노드
 
@@ -108,8 +108,38 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target)
 			dcNode = GetRightSubTree(dNode);
 
 		if (GetLeftSubTree(pNode) != NULL)
+			ChangeLeftSubTree(pNode, dcNode);
+		else
+			ChangeRightSubTree(pNode, dcNode);
 	}
+	else                                                                         //자식 노드 2개
+	{
+		BTreeNode* mNode = GetRightSubTree(dNode);			//대체노드
+		BTreeNode* mpNode = dNode;							//대체노드의 부모노드
+		int delData;
 
+		while (GetLeftSubTree(mNode) != NULL)
+		{
+			mpNode = mNode;
+			mNode = GetLeftSubTree(mNode);
+		}
+		delData = GetData(dNode);
+		SetData(dNode, GetData(mNode));
+
+		if (GetLeftSubTree(mpNode) == mNode)
+			ChangeLeftSubTree(mpNode, GetRightSubTree(mNode));
+		else
+			ChangerightSubTree(mpNode, GetRightSubTree(mNode);
+		
+		dNode = mNode;
+		SetData(dNode, delData);
+	}
+	
+	if (GetRightSubTree(pVRoot) != *pRoot)
+		*pRoot = GetRightSubTree(pVRoot);
+
+	free(pVRoot);
+	return dNode;
 }
 
 void BSTShowAll(BTreeNode* bst)
