@@ -6,46 +6,86 @@
 #pragma warning (disable : 6001)
 
 
-#include "BinarySearchTree.h"
+//#include "BinarySearchTree.h"
+//
+//int main(void)
+//{
+//	BTreeNode* bstRoot;
+//	BTreeNode* sNode;
+//
+//	BSTMakeAndInit(&bstRoot);
+//
+//	BSTInsert(&bstRoot, 9);
+//	BSTInsert(&bstRoot, 1);
+//	BSTInsert(&bstRoot, 6);
+//	BSTInsert(&bstRoot, 2);
+//	BSTInsert(&bstRoot, 8);
+//	BSTInsert(&bstRoot, 3);
+//	BSTInsert(&bstRoot, 5);
+//	
+//	sNode = BSTSearch(bstRoot, 1);
+//	if (sNode == NULL)
+//		printf("Å½»ö ½ÇÆÐ \n");
+//	else
+//		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
+//
+//	sNode = BSTSearch(bstRoot, 4);
+//	if (sNode == NULL)
+//		printf("Å½»ö ½ÇÆÐ \n");
+//	else
+//		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
+//
+//	sNode = BSTSearch(bstRoot, 6);
+//	if (sNode == NULL)
+//		printf("Å½»ö ½ÇÆÐ \n");
+//	else
+//		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
+//	
+//	sNode = BSTSearch(bstRoot, 7);
+//	if (sNode == NULL)
+//		printf("Å½»ö ½ÇÆÐ \n");
+//	else
+//		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
+//
+//	return 0;
+//}
+
+
+#include "BinarySearchTree2.h"
 
 int main(void)
 {
 	BTreeNode* bstRoot;
 	BTreeNode* sNode;
-
 	BSTMakeAndInit(&bstRoot);
 
-	BSTInsert(&bstRoot, 9);
-	BSTInsert(&bstRoot, 1);
-	BSTInsert(&bstRoot, 6);
-	BSTInsert(&bstRoot, 2);
-	BSTInsert(&bstRoot, 8);
-	BSTInsert(&bstRoot, 3);
-	BSTInsert(&bstRoot, 5);
+	BSTInsert(&bstRoot, 5);		BSTInsert(&bstRoot, 8);
+	BSTInsert(&bstRoot, 1);		BSTInsert(&bstRoot, 6);
+	BSTInsert(&bstRoot, 4);		BSTInsert(&bstRoot, 9);
+	BSTInsert(&bstRoot, 3);		BSTInsert(&bstRoot, 2);
+	BSTInsert(&bstRoot, 7);
+
+	BSTShowAll(bstRoot);	puts("");
+	sNode = BSTRemove(&bstRoot, 3);
+	printf("%d \n", sNode->data);
+	free(sNode);
+
+	BSTShowAll(bstRoot);	puts("");
+	sNode = BSTRemove(&bstRoot, 8);
+	printf("%d \n", sNode->data);
+	free(sNode);
+
+	BSTShowAll(bstRoot);	puts("");
+	sNode = BSTRemove(&bstRoot, 1);
+	printf("%d \n", sNode->data);
+	free(sNode);
+
+	BSTShowAll(bstRoot);	puts("");
+	sNode = BSTRemove(&bstRoot, 6);
+	printf("%d \n", sNode->data);
+	free(sNode);
+
+	BSTShowAll(bstRoot);	puts("");
 	
-	sNode = BSTSearch(bstRoot, 1);
-	if (sNode == NULL)
-		printf("Å½»ö ½ÇÆÐ \n");
-	else
-		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
-
-	sNode = BSTSearch(bstRoot, 4);
-	if (sNode == NULL)
-		printf("Å½»ö ½ÇÆÐ \n");
-	else
-		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
-
-	sNode = BSTSearch(bstRoot, 6);
-	if (sNode == NULL)
-		printf("Å½»ö ½ÇÆÐ \n");
-	else
-		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
-	
-	sNode = BSTSearch(bstRoot, 7);
-	if (sNode == NULL)
-		printf("Å½»ö ½ÇÆÐ \n");
-	else
-		printf("Å½»ö¿¡ ¼º°ïÇÑ Å°ÀÇ °ª : %d \n", BSTGetNodeData(sNode));
-
 	return 0;
 }

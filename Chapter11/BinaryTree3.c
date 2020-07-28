@@ -65,7 +65,7 @@ void InorderTraverse(BTreeNode* bt, VisitFuncPtr action)
 
 	InorderTraverse(bt->left, action);
 	action(bt->data);
-	InorderTraverse(bt->left, action);
+	InorderTraverse(bt->right, action);
 }
 
 void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action)
@@ -91,14 +91,14 @@ BTreeNode* RemoveLeftSubTree(BTreeNode* bt)
 	return delNode;
 }
 
-BTreeNode* RemoveRighSubTree(BTreeNode* bt)
+BTreeNode* RemoveRightSubTree(BTreeNode* bt)
 {
 	BTreeNode* delNode = NULL;
 
 	if (bt != NULL)
 	{
 		delNode = bt->right;
-		bt->left = NULL;
+		bt->right = NULL;
 	}
 	return delNode;
 }
