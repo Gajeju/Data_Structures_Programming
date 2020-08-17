@@ -51,7 +51,7 @@ void BSTInsert(BTreeNode** pRoot, BSTData data)
 		*pRoot = nNode;
 	}
 
-	*pRoot = Rebalance(pRoot);
+	*pRoot = Rebalance(pRoot);	// ³ëµå Ãß°¡ ÈÄ ¸®¹ë·±½Ì
 }
 
 BTreeNode* BSTSearch(BTreeNode* bst, BSTData target)
@@ -162,7 +162,7 @@ BTreeNode* BSTRemove(BTreeNode** pRoot, BSTData target)
 
 	free(pVRoot);
 
-	*pRoot = Rebalance(pRoot);
+	*pRoot = Rebalance(pRoot); 	// ³ëµå Á¦°Å ÈÄ ¸®¹ë·±½Ì!
 	return dNode;
 }
 

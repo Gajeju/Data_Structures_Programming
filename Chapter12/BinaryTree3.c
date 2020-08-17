@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "BinaryTree3.h"
-#pragma warning(disable : 6001)
 
 BTreeNode* MakeBTreeNode(void)
 {
 	BTreeNode* nd = (BTreeNode*)malloc(sizeof(BTreeNode));
+
 	nd->left = NULL;
 	nd->right = NULL;
-
 	return nd;
 }
 
@@ -78,13 +77,11 @@ void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action)
 	action(bt->data);
 }
 
-//메모리 해제를 진행하지 않는다. 메모리 해제를 하고 싶은 경우 main에서 할 수 있도록 delNode를 반환한다
 BTreeNode* RemoveLeftSubTree(BTreeNode* bt)
 {
 	BTreeNode* delNode = NULL;
 
-	if (bt != NULL)
-	{
+	if (bt != NULL) {
 		delNode = bt->left;
 		bt->left = NULL;
 	}
@@ -95,8 +92,7 @@ BTreeNode* RemoveRightSubTree(BTreeNode* bt)
 {
 	BTreeNode* delNode = NULL;
 
-	if (bt != NULL)
-	{
+	if (bt != NULL) {
 		delNode = bt->right;
 		bt->right = NULL;
 	}
