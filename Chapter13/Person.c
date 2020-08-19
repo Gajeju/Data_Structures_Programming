@@ -20,7 +20,7 @@ Person* MakePersonData(int ssn, char* name, char* addr)
 {
 	Person* newP = (Person*)malloc(sizeof(Person));
 	newP->ssn = ssn;
-	strcpy(newP->name, name);
+	strcpy(newP->name, name);  
 	strcpy(newP->addr, addr);
 	
 	return newP;
