@@ -140,6 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ALGraph.h" />
+    <ClInclude Include="DLinkedList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ALGraph.c" />
+    <ClCompile Include="ALGraphMain.c" />
+    <ClCompile Include="DLinkedList.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
