@@ -5,7 +5,7 @@
 #define FALSE	0
 
 
-typedef char LData;
+typedef int LData;
 
 typedef struct _node
 {
