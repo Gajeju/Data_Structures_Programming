@@ -31,7 +31,7 @@ void GraphDestroy(ALGraph* pg)
 //간선 추가
 void AddEdge(ALGraph* pg, int fromV, int toV)
 {
-	LInsert(&(pg->adjList[fromV]), toV);
+ 	LInsert(&(pg->adjList[fromV]), toV);
 	LInsert(&(pg->adjList[toV]), fromV);
 	pg->numE += 1;
 }
