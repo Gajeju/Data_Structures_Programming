@@ -140,11 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ALGraph.h" />
+    <ClInclude Include="ALGraphDFS.h" />
+    <ClInclude Include="ArrayBaseStack.h" />
     <ClInclude Include="DLinkedList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ALGraph.c" />
+    <ClCompile Include="ALGraphDFS.c" />
     <ClCompile Include="ALGraphMain.c" />
+    <ClCompile Include="ArrayBaseStack.c" />
     <ClCompile Include="DLinkedList.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
