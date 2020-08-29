@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "ALGraphDFS.h"
 #include "ArrayBaseStack.h"
+#include "DLinkedList.h"
 
 int WhoIsPrecede(int data1, int data2);
 
@@ -76,5 +79,44 @@ int VisitVertex(ALGraph* pg, int visitV)
 void DFShowGraphVertex(ALGraph* pg, int startV)
 {
 	Stack stack;
+	int visitV = startV;		//현재 탐색중인 정점
+	int nextV;
 
+	StackInit(&stack);
+	VisitVertex(pg, visitV);
+	SPush(&stack, visitV);
+
+	while (LFirst(&(pg->adjList[visitV]), &nextV) == TRUE)
+	{
+		int visitFlag = FALSE;
+		
+		if (VisitVertex(pg, nextV) == TRUE)
+		{
+			SPush(&stack, visitV);
+			visitV = nextV;
+			visitFlag = TRUE;
+		}
+		else
+		{
+			while (LNext(&(pg->adjList[visitV]), &nextV) == TRUE)
+			{
+				if (VisitVertex(pg, nextV) == TRUE)
+				{
+					SPush(&stack, visitV);
+					visitV = nextV;
+					visitFlag = TRUE;
+					break;
+				}
+			}
+		}
+
+		if (visitFlag == FALSE)
+		{
+			if (SIsEmpty(&stack) == TRUE)
+				break;
+			else
+				visitV = SPop(&stack);
+		}
+	}
+	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
 }
