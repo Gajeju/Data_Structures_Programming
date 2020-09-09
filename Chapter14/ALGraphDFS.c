@@ -72,6 +72,11 @@ int WhoIsPrecede(int data1, int data2)
 		return 0;
 	else
 		return 1;
+	//문제14-2 반대로 참조
+	/*if (data1 < data2)
+		return 1;
+	else
+		return 0;*/
 }
 
 
