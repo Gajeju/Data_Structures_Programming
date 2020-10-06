@@ -2,7 +2,7 @@
 
 #include "DLinkedList.h"
 
-enum {A, B, C, D, E, F, H, H, I, J};
+enum {A, B, C, D, E, F, G, H, I, J};
 
 typedef struct _ual
 {
