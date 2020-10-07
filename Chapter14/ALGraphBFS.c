@@ -72,11 +72,6 @@ int WhoIsPrecede(int data1, int data2)
 		return 0;
 	else
 		return 1;
-	//문제14-2 반대로 참조
-	/*if (data1 < data2)
-		return 1;
-	else
-		return 0;*/
 }
 
 
@@ -85,23 +80,26 @@ int VisitVertex(ALGraph* pg, int visitV)
 	if (pg->visitInfo[visitV] == 0)
 	{
 		pg->visitInfo[visitV] = 1;
-		printf("%c ", visitV + 65);     // 방문 정점 출력
+		printf("%c ", visitV + 65);    // 방문 정점 출력
 		return TRUE;
 	}
 
 	return FALSE;
 }
 
+// Breadth First Search: 정점의 정보 출력
 void BFShowGraphVertex(ALGraph* pg, int startV)
 {
 	Queue queue;
 	int visitV = startV;
 	int nextV;
 
+	// DFS를 위한 큐의 초기화
 	QueueInit(&queue);
 
+	// 시작 정점 탐색
 	VisitVertex(pg, visitV);
-	
+
 	while (LFirst(&(pg->adjList[visitV]), &nextV) == TRUE)
 	{
 		if (VisitVertex(pg, nextV) == TRUE)
@@ -109,15 +107,16 @@ void BFShowGraphVertex(ALGraph* pg, int startV)
 
 		while (LNext(&(pg->adjList[visitV]), &nextV) == TRUE)
 		{
-			if (visitVertex(pg, nextV) == TRUE)
-				Enqueu(&queue, nextV);
+			if (VisitVertex(pg, nextV) == TRUE)
+				Enqueue(&queue, nextV);
 		}
 
-		if (QIsEmpty(&queue) == TRUE)
+		if (QIsEmpty(&queue) == TRUE)    // 큐가 비면 BFS 종료
 			break;
 		else
 			visitV = Dequeue(&queue);
 	}
+
+	// 탐색 정보 초기화
 	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
-	
 }
