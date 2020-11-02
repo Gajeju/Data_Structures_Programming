@@ -19,6 +19,7 @@ typedef struct _ual
 
 
 
+
 // 그래프의 초기화
 void GraphInit(ALGraph* pg, int nv);
 
